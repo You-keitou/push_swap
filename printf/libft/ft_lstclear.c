@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 23:07:15 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/30 21:15:56 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 00:42:47 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*tmp;
 	t_list	*next_node;
 
-	if (lst != NULL)
+	if (lst && *lst)
 	{
 		tmp = *lst;
 		while (tmp->content)

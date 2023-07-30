@@ -26,6 +26,7 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
+void	ft_swap(int *a, int *b);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

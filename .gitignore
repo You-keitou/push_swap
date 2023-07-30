@@ -7,3 +7,4 @@ printf/*/*.a
 */*.out
 test
 TEST
+src/main
