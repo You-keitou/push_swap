@@ -4,10 +4,10 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 
-SRCS = $(wildcard src/*.c)
+SRCS = $(wildcard src/*.c src/utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
-TEST_SRC = $(wildcard test/*.c)
+TEST_SRC = $(wildcard test/*.c src/utils/*.c)
 TEST_OBJ = $(TEST_SRC:.c=.o)
 TEST_NAME = TEST
 

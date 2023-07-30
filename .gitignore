@@ -8,3 +8,4 @@ printf/*/*.a
 test
 TEST
 src/main
+push_swap
