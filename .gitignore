@@ -2,4 +2,8 @@
 *.o
 *.out
 printf/*/*.o
+printf/*.a
+printf/*/*.a
 */*.out
+test
+TEST

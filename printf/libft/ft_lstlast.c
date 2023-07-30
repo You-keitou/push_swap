@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyang   < jinyang@student.42tokyo.>      +#+  +:+       +#+        */
+/*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:28:29 by jinyang           #+#    #+#             */
-/*   Updated: 2022/07/17 18:34:25 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:09:33 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstlast(t_list *lst)
 	if (lst == NULL)
 		return (NULL);
 	ptr = lst;
-	while (ptr->next != NULL)
+	while (ptr->content)
 		ptr = ptr->next;
-	return (ptr);
+	return (ptr->prev);
 }

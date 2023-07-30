@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyang   < jinyang@student.42tokyo.>      +#+  +:+       +#+        */
+/*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 23:17:30 by jinyang           #+#    #+#             */
-/*   Updated: 2022/07/18 04:15:30 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:10:46 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;
 
-	if (lst != NULL)
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		last_node = ft_lstlast(*lst);
-		if (last_node != NULL)
-			last_node->next = new;
-		else
-			*lst = new;
+		last_node = (*lst)->prev;
+		ft_lstinsert(new, last_node, *lst);
 	}
 }

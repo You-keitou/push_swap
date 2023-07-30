@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyang   < jinyang@student.42tokyo.>      +#+  +:+       +#+        */
+/*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 23:07:15 by jinyang           #+#    #+#             */
-/*   Updated: 2022/07/21 19:50:35 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:15:56 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (lst != NULL)
 	{
 		tmp = *lst;
-		while (tmp != NULL)
+		while (tmp->content)
 		{
 			next_node = tmp->next;
 			if (del != NULL)
@@ -28,6 +28,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			free(tmp);
 			tmp = next_node;
 		}
+		free(tmp);
 		*lst = NULL;
 	}
 }

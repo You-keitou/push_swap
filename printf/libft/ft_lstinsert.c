@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 23:22:50 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/30 21:17:10 by jinyang          ###   ########.fr       */
+/*   Created: 2023/07/30 20:18:30 by jinyang           #+#    #+#             */
+/*   Updated: 2023/07/30 21:04:34 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstinsert(t_list *new, t_list *prev, t_list *next)
 {
-	t_list	*first;
-	t_list	*new;
-
-	if (!f || !lst)
-		return (NULL);
-	first = NULL;
-	while (lst->content)
-	{
-		new = ft_lstnew(f(lst->content));
-		if (!new)
-		{
-			ft_lstclear(&first, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&first, new);
-		lst = lst->next;
-	}
-	return (first);
+	if (!new | !prev | !next)
+		return;
+	prev->next = new;
+	new->prev = prev;
+	new->next = next;
+	next->prev = new;
 }
