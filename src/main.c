@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:56:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 01:03:42 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 02:49:24 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,11 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		if (is_sorted(array, argc - 1))
+			return (0);
 		cord_compress(array, argc - 1);
 		init_stack(stack_a, stack_b, array, argc - 1);
+		// sort(stack_a, stack_b, argc - 1);
 		free(array);
 		free_stack(stack_a, stack_a);
 	}

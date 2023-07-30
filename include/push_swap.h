@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 01:36:41 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 02:44:52 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 //sort
-void push_swap(int *array, int size);
+void sort(t_list **stack_a, t_list **stack_b, int size);
 #endif

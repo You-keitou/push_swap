@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:02:49 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 00:58:20 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 02:48:25 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ bool	check_argv(int size, char **argv, int *array)
 	char	*arg;
 
 	i = -1;
+	if (size == 0)
+		return (true);
 	while (++i < size)
 	{
 		array[i] = ft_atoi(argv[i + 1]);
