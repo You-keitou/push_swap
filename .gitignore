@@ -1,0 +1,5 @@
+.vscode
+*.o
+*.out
+printf/*/*.o
+*/*.out
