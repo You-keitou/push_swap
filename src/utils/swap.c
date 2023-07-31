@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:13:50 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 08:41:41 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 12:57:41 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	swap(t_list **stack)
 void	sa(t_list **stack)
 {
 	swap(stack);
-	ft_printf("aa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_list **stack)

@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 05:13:49 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 12:46:54 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 //sort
 void sort(t_list **stack_a, t_list **stack_b, int size);
+void sort_three(t_list **stack_a);
 void sort_complex(t_list **stack_a, t_list **stack_b, t_stack *stack_manage);
 #endif

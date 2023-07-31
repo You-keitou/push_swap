@@ -6,13 +6,13 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:30:27 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 08:07:56 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 13:02:46 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void sort_three(t_list **stack_a)
+void sort_three(t_list **stack_a)
 {
 	int first;
 	int second;

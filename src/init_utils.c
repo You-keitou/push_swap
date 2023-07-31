@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:02:49 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 02:48:25 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 10:30:03 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static int	*bubble_sort(int *array, int size)
 		i = -1;
 		while (++i < size - 1)
 		{
-			j = i - 1;
-			while (++j < size - 1)
+			j = -1;
+			while (++j < size - 1 - i)
 			{
 				if (sorted_array[j] > sorted_array[j + 1])
 					ft_swap(sorted_array + j, sorted_array + j + 1);
