@@ -1,6 +1,7 @@
 INCLUDES = ../../include
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 NAME = libft.a
+CC = gcc
 
 OBJS = ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 		ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o \

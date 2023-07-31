@@ -1,5 +1,17 @@
-#include "libftprintf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/01 00:22:41 by jinyang           #+#    #+#             */
+/*   Updated: 2023/08/01 00:22:41 by jinyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include "libftprintf.h"
 
 static int	ft_abs(int num)
 {
@@ -11,12 +23,13 @@ static int	ft_abs(int num)
 
 void	itoa_ten(int num, t_buffer *Buffer)
 {
-	static char	*base = "0123456789";
+	static char	*base;
 	char		temp[sizeof(int) * 8];
 	int			temp_index;
 	int			base_digit;
 	bool		isneg;
 
+	base = "0123456789";
 	temp[0] = base[0];
 	isneg = num < 0;
 	if (num == 0)
@@ -37,11 +50,12 @@ void	itoa_ten(int num, t_buffer *Buffer)
 
 void	itoa_unsigned(int num, t_buffer *Buffer)
 {
-	static char		*base = "0123456789";
+	static char		*base;
 	char			temp[sizeof(int) * 8];
 	int				temp_index;
 	unsigned int	base_digit;
 
+	base = "0123456789";
 	temp[0] = base[0];
 	if (num == 0)
 		temp_index = 1;

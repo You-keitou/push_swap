@@ -6,21 +6,21 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:30:27 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 13:02:46 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 00:21:52 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(t_list **stack_a)
+void	sort_three(t_list **stack_a)
 {
-	int first;
-	int second;
-	int third;
+	int	first;
+	int	second;
+	int	third;
 
-    first = *((*(stack_a))->content);
-    second = *(((*(stack_a))->next)->content);
-    third = *(((*(stack_a))->next->next)->content);
+	first = *((*(stack_a))->content);
+	second = *(((*(stack_a))->next)->content);
+	third = *(((*(stack_a))->next->next)->content);
 	if (first > second && second < third && third > first)
 		sa(stack_a);
 	else if (first > second && second > third && third < first)
@@ -29,41 +29,41 @@ void sort_three(t_list **stack_a)
 		rra(stack_a);
 	}
 	else if (first > second && second < third && third < first)
-        ra(stack_a);
-    else if (first < second && second > third && third > first)
-    {
+		ra(stack_a);
+	else if (first < second && second > third && third > first)
+	{
 		sa(stack_a);
 		ra(stack_a);
 	}
-    else if (first < second && second > third && third < first)
+	else if (first < second && second > third && third < first)
 		rra(stack_a);
 }
 
 static void	sort_under_six(t_list **stack_a, t_list **stack_b)
 {
-	int stack_head_num;
-    int will_push_num;
+	int	stack_head_num;
+	int	will_push_num;
 
-    will_push_num = 0;
-    while (ft_lstsize(*stack_a) > 3)
-    {
-        stack_head_num = *((*(stack_a))->content);
-        if (will_push_num == stack_head_num)
-        {
+	will_push_num = 0;
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		stack_head_num = *((*(stack_a))->content);
+		if (will_push_num == stack_head_num)
+		{
 			pb(stack_a, stack_b);
 			will_push_num++;
 		}
-        else
+		else
 			ra(stack_a);
 	}
 	sort_three(stack_a);
-    while (ft_lstsize(*stack_b) > 0)
+	while (ft_lstsize(*stack_b) > 0)
 		pa(stack_a, stack_b);
 }
 
-void sort(t_list **stack_a, t_list **stack_b, int size)
+void	sort(t_list **stack_a, t_list **stack_b, int size)
 {
-	t_stack *stack_manage;
+	t_stack	*stack_manage;
 
 	stack_manage = (t_stack *)malloc(sizeof(t_stack));
 	stack_manage->head = stack_a;

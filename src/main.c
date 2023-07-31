@@ -20,7 +20,7 @@ static void	free_stack(t_list **stack_a, t_list **stack_b)
 	free(stack_b);
 }
 
-static void	error()
+static void	error(void)
 {
 	ft_printf("Error\n");
 	exit(1);

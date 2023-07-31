@@ -7,21 +7,11 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 SRCS = $(wildcard src/*.c src/utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
-TEST_SRC = $(wildcard test/*.c src/utils/*.c)
-TEST_OBJ = $(TEST_SRC:.c=.o)
-TEST_NAME = TEST
-
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@${MAKE} -C printf
-	$(CC) $(CFLAGS) -g -o $@ $^ printf/libftprintf.a
-
-tester: $(TEST_NAME)
-
-$(TEST_NAME): $(TEST_OBJ)
 	@${MAKE} -C printf
 	$(CC) $(CFLAGS) -g -o $@ $^ printf/libftprintf.a
 

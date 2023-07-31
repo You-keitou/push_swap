@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:33:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 08:41:09 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 00:21:34 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	connect(t_list *first, t_list *second)
 {
 	if (!first || !second)
-		return;
+		return ;
 	first->next = second;
 	second->prev = first;
 }
@@ -28,9 +28,9 @@ static void	rotate(t_list **stack_head)
 	t_list	*new_head;
 
 	if (!(*stack_head) || !((*stack_head)->next))
-		return;
+		return ;
 	if (!(*stack_head)->content || !(*stack_head)->next->content)
-		return;
+		return ;
 	cur_head = *stack_head;
 	null_guard = cur_head->prev;
 	cur_last = null_guard->prev;

@@ -35,8 +35,10 @@ void	ft_putchar(t_buffer *Buffer, char c)
 
 void	ft_putstr(t_buffer *Buffer, char *str)
 {
-	if (str == NULL) ft_putstr(Buffer, "(null)");
-	else{
+	if (str == NULL)
+		ft_putstr(Buffer, "(null)");
+	else
+	{
 		while (*str != 0)
 		{
 			ft_putchar(Buffer, *str);

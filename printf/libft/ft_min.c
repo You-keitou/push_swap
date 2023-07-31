@@ -6,14 +6,14 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 05:04:17 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 05:04:50 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 00:20:10 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_min(int a, int b)
 {
 	if (a < b)
-		return a;
+		return (a);
 	else
-		return b;
+		return (b);
 }

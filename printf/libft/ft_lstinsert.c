@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_lstinsert(t_list *new, t_list *prev, t_list *next)
 {
 	if (!new | !prev | !next)
-		return;
+		return ;
 	prev->next = new;
 	new->prev = prev;
 	new->next = next;

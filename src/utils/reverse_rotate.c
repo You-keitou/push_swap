@@ -20,9 +20,9 @@ static void	reverse_rotate(t_list **stack_head)
 	t_list	*null_guard;
 
 	if (!(*stack_head) || !((*stack_head)->next))
-		return;
+		return ;
 	if (!(*stack_head)->content || !(*stack_head)->next->content)
-		return;
+		return ;
 	cur_head = *stack_head;
 	null_guard = cur_head->prev;
 	cur_last = null_guard->prev;

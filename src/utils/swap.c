@@ -27,7 +27,6 @@ static void	swap(t_list **stack)
 	tmp = first_node->content;
 	first_node->content = second_node->content;
 	second_node->content = tmp;
-
 }
 
 void	sa(t_list **stack)
@@ -41,4 +40,3 @@ void	sb(t_list **stack)
 	swap(stack);
 	ft_printf("sb\n");
 }
-

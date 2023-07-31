@@ -14,10 +14,10 @@
 
 bool	is_sorted(int *array, int size)
 {
-	int index;
+	int	index;
 
 	index = -1;
-	while(++index < size - 1)
+	while (++index < size - 1)
 	{
 		if (array[index] > array[index + 1])
 			return (false);
@@ -62,7 +62,7 @@ static int	*bubble_sort(int *array, int size)
 	if (sorted_array)
 	{
 		i = -1;
-		while(++i < size)
+		while (++i < size)
 			sorted_array[i] = array[i];
 		i = -1;
 		while (++i < size - 1)
@@ -86,9 +86,9 @@ void	cord_compress(int *array, int size)
 
 	sorted = bubble_sort(array, size);
 	if (!sorted)
-		return;
+		return ;
 	i = -1;
-	while(++i < size)
+	while (++i < size)
 	{
 		j = -1;
 		while (++j < size)
@@ -96,7 +96,7 @@ void	cord_compress(int *array, int size)
 			if (array[i] == sorted[j])
 			{
 				array[i] = j;
-				break;
+				break ;
 			}
 		}
 	}
@@ -110,7 +110,7 @@ void	init_stack(t_list **stack_a, t_list **stack_b, int *array, int size)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	i = -1;
-	while(++i < size)
+	while (++i < size)
 		ft_lstadd_back(stack_a, ft_lstnew(array + i));
 	ft_lstadd_back(stack_a, ft_lstnew(NULL));
 	ft_lstadd_back(stack_b, ft_lstnew(NULL));
