@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:37:28 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 08:41:19 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 02:47:22 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ static void	push(t_list **src, t_list **dest)
 	}
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
-	push(stack_b, stack_a);
+	push(stack_b->head, stack_a->head);
+	stack_a->size++;
+	stack_b->size--;
 	ft_printf("pa\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	push(stack_a, stack_b);
+	push(stack_a->head, stack_b->head);
+	stack_a->size--;
+	stack_b->size++;
 	ft_printf("pb\n");
 }
