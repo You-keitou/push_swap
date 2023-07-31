@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 02:51:50 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 04:05:14 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ typedef struct s_stack
 {
 	t_list	**head;
 	int		size;
-	int		cheapest_a_index;
-	int		b_target;
-	int		b_target_tmp;
+	int		cheapest;
+	int		target;
+	int		target_tmp;
 }			t_stack;
 
 // output
@@ -33,6 +33,7 @@ void		cord_compress(int *array, int size);
 bool		is_sorted(int *array, int size);
 void		init_stack(t_list **stack_a, t_list **stack_b, int *srray,
 				int size);
+int			*bubble_sort(int *array, int size);
 
 // stack operation
 void		connect(t_list *first, t_list *second);
@@ -57,5 +58,5 @@ void		sort_complex(t_stack *stack_a, t_stack *stack_b);
 int			find_nth_node(int num, t_list *stack);
 bool		is_min_of_stack(int num, t_list *stack);
 int			find_biggest_node(t_list *stack, int num);
-
+void		insert(t_stack *stack_a, t_stack *stack_b);
 #endif

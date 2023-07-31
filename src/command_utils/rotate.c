@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:33:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 00:21:34 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 04:21:58 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
+	ft_printf("rr\n");
 }

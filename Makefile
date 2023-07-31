@@ -4,7 +4,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 
-SRCS = $(wildcard src/*.c src/utils/*.c)
+SRCS = $(wildcard src/*.c src/command_utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
 RM = rm -f

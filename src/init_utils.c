@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:02:49 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 10:30:03 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 03:58:28 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	check_argv(int size, char **argv, int *array)
 	return (false);
 }
 
-static int	*bubble_sort(int *array, int size)
+int	*bubble_sort(int *array, int size)
 {
 	int	*sorted_array;
 	int	i;

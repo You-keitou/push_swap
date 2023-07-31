@@ -41,8 +41,8 @@ void	sort_three(t_list **stack_a)
 
 static void	sort_under_six(t_stack *stack_a, t_stack *stack_b)
 {
-	t_list *head_node;
-	int will_push_num;
+	t_list	*head_node;
+	int		will_push_num;
 
 	will_push_num = 0;
 	while (stack_a->size > 3)
@@ -64,7 +64,7 @@ static void	sort_under_six(t_stack *stack_a, t_stack *stack_b)
 void	sort(t_list **head_a, t_list **head_b, int size)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_a = (t_stack *)malloc(sizeof(t_stack));
 	stack_b = (t_stack *)malloc(sizeof(t_stack));
