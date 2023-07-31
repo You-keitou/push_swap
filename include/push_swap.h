@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 04:05:14 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 07:19:19 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ int			find_nth_node(int num, t_list *stack);
 bool		is_min_of_stack(int num, t_list *stack);
 int			find_biggest_node(t_list *stack, int num);
 void		insert(t_stack *stack_a, t_stack *stack_b);
+
+// insert_utils
+void		ra_rb(t_stack *stack_a, t_stack *stack_b);
+void		rra_rrb(t_stack *stack_a, t_stack *stack_b);
+void		ra_rrb(t_stack *stack_a, t_stack *stack_b);
+void		rra_rb(t_stack *stack_a, t_stack *stack_b);
+
 #endif

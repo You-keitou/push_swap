@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:30:27 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 02:51:38 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 07:23:34 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	sort(t_list **head_a, t_list **head_b, int size)
 
 	stack_a = (t_stack *)malloc(sizeof(t_stack));
 	stack_b = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack_a || !stack_b)
+		return ;
 	stack_a->head = head_a;
 	stack_a->size = size;
 	stack_b->head = head_b;
@@ -80,4 +82,6 @@ void	sort(t_list **head_a, t_list **head_b, int size)
 		sort_under_six(stack_a, stack_b);
 	else
 		sort_complex(stack_a, stack_b);
+	free(stack_a);
+	free(stack_b);
 }

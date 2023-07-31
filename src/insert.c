@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 04:03:09 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 06:18:21 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/01 07:17:22 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,84 +29,16 @@ static int	find_chepest_move(t_stack *stack_a, t_stack *stack_b)
 	i = -1;
 	while (++i < 4)
 	{
-		j = 0;
-		while (j < 4)
+		j = -1;
+		while (++j < 4)
 		{
 			if (score[i] > score[j])
 				break ;
-			j++;
 		}
 		if (j == 4)
 			return (i);
 	}
 	return (-1);
-}
-
-static void	ra_rb(t_stack *stack_a, t_stack *stack_b)
-{
-	while (stack_a->target && stack_a->cheapest)
-	{
-		rr(stack_a->head, stack_b->head);
-		stack_a->cheapest--;
-		stack_a->target--;
-	}
-	if (stack_a->cheapest != 0)
-	{
-		while (stack_a->cheapest--)
-			ra(stack_a->head);
-	}
-	else
-	{
-		while (stack_a->target--)
-			rb(stack_b->head);
-	}
-}
-
-static void	rra_rrb(t_stack *stack_a, t_stack *stack_b)
-{
-	int	rra_cost;
-	int	rrb_cost;
-
-	rra_cost = stack_a->size - stack_a->cheapest;
-	rrb_cost = stack_b->size - stack_a->target;
-	while (rra_cost && rrb_cost)
-	{
-		rrr(stack_a->head, stack_b->head);
-		rra_cost--;
-		rrb_cost--;
-	}
-	if (rra_cost != 0)
-	{
-		while (rra_cost--)
-			rra(stack_a->head);
-	}
-	else
-	{
-		while (rrb_cost--)
-			rrb(stack_b->head);
-	}
-}
-
-static void	ra_rrb(t_stack *stack_a, t_stack *stack_b)
-{
-	int	rrb_cost;
-
-	rrb_cost = stack_b->size - stack_a->target;
-	while (stack_a->cheapest--)
-		ra(stack_a->head);
-	while (rrb_cost--)
-		rrb(stack_b->head);
-}
-
-static void	rra_rb(t_stack *stack_a, t_stack *stack_b)
-{
-	int	rra_cost;
-
-	rra_cost = stack_a->size - stack_a->cheapest;
-	while (rra_cost--)
-		rra(stack_a->head);
-	while (stack_a->target--)
-		rb(stack_b->head);
 }
 
 void	insert(t_stack *stack_a, t_stack *stack_b)
