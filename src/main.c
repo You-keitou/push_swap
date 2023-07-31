@@ -6,23 +6,11 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:56:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 03:14:15 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 09:07:57 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	print_all(t_list **stack)
-{
-	t_list *tmp;
-	tmp = *stack;
-	ft_printf("############\n");
-	while (tmp->content)
-	{
-		ft_printf("%d\n", *(tmp->content));
-		tmp = tmp->next;
-	}
-}
 
 static void	free_stack(t_list **stack_a, t_list **stack_b)
 {
@@ -59,8 +47,6 @@ int	main(int argc, char **argv)
 		cord_compress(array, argc - 1);
 		init_stack(stack_a, stack_b, array, argc - 1);
 		sort(stack_a, stack_b, argc - 1);
-		print_all(stack_a);
-		print_all(stack_b);
 		free(array);
 		free_stack(stack_a, stack_b);
 	}

@@ -6,13 +6,13 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:30:27 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 03:01:24 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 08:07:56 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(t_list **stack_a)
+static void sort_three(t_list **stack_a)
 {
 	int first;
 	int second;
@@ -39,7 +39,7 @@ void sort_three(t_list **stack_a)
 		rra(stack_a);
 }
 
-void	sort_under_six(t_list **stack_a, t_list **stack_b)
+static void	sort_under_six(t_list **stack_a, t_list **stack_b)
 {
 	int stack_head_num;
     int will_push_num;
@@ -63,10 +63,17 @@ void	sort_under_six(t_list **stack_a, t_list **stack_b)
 
 void sort(t_list **stack_a, t_list **stack_b, int size)
 {
+	t_stack *stack_manage;
+
+	stack_manage = (t_stack *)malloc(sizeof(t_stack));
+	stack_manage->head = stack_a;
+	stack_manage->size = size;
 	if (size == 2)
 		sa(stack_a);
 	else if (size == 3)
 		sort_three(stack_a);
 	else if (size <= 6)
 		sort_under_six(stack_a, stack_b);
+	else
+		sort_complex(stack_a, stack_b, stack_manage);
 }

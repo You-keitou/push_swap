@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 02:44:52 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 05:13:49 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+
+typedef struct s_stack
+{
+	t_list	**head;
+	int		sorted;
+	int		size;
+	int		cheapest_a_index;
+	int		b_target;
+	int		b_target_tmp;
+} t_stack;
 
 //output
 int		ft_printf(const char *fmt, ...);
@@ -40,4 +50,5 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 //sort
 void sort(t_list **stack_a, t_list **stack_b, int size);
+void sort_complex(t_list **stack_a, t_list **stack_b, t_stack *stack_manage);
 #endif

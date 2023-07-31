@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:37:28 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 01:40:51 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 08:41:19 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ static void	push(t_list **src, t_list **dest)
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_b, stack_a);
+	ft_printf("pa\n");
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_a, stack_b);
+	ft_printf("pb\n");
 }

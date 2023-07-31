@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 01:33:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/07/31 01:36:09 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/07/31 08:41:09 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ static void	rotate(t_list **stack_head)
 void	ra(t_list **stack_a)
 {
 	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
 void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
+	ft_printf("rb\n");
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
