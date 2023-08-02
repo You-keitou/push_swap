@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 04:03:09 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 07:17:22 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/02 15:45:56 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static int	find_chepest_move(t_stack *stack_a, t_stack *stack_b)
 
 	rra_score = stack_a->size - stack_a->cheapest;
 	rrb_score = stack_b->size - stack_a->target;
-	score[0] = ft_max(stack_a->cheapest, stack_a->target_tmp);
+	score[0] = ft_max(stack_a->cheapest, stack_a->target);
 	score[1] = ft_max(rra_score, rrb_score);
 	score[2] = stack_a->cheapest + rrb_score;
-	score[3] = rra_score + stack_a->target_tmp;
+	score[3] = rra_score + stack_a->target;
 	i = -1;
 	while (++i < 4)
 	{
@@ -57,9 +57,6 @@ void	insert(t_stack *stack_a, t_stack *stack_b)
 	else
 		exit(1);
 	pb(stack_a, stack_b);
-	if (is_min_of_stack(*(*stack_b->head)->content, *stack_b->head)
-		&& stack_b->size != 1)
-		rb(stack_b->head);
 }
 
 // void	insert(t_stack *stack_a, t_stack *stack_b)
