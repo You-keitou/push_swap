@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/04 00:28:20 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 06:40:08 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ typedef struct s_stack
 // output
 int			ft_printf(const char *fmt, ...);
 
-// init
-bool		check_argv(int size, char **argv, int *array);
-void		cord_compress(int *array, int size);
+//check
+bool		is_duplicated(int *array, int size);
+int			*check_argv(int size, char **argv, int *new_size);
 bool		is_sorted(int *array, int size);
-void		init_stack(t_list **stack_a, t_list **stack_b, int *srray,
+
+// init
+void		cord_compress(int *array, int size);
+void		init_stack(t_list ***stack_a, t_list ***stack_b, int *srray,
 				int size);
 int			*bubble_sort(int *array, int size);
 

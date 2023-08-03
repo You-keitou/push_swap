@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:02:49 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 03:58:28 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 06:43:18 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,6 @@ bool	is_sorted(int *array, int size)
 	return (true);
 }
 
-bool	check_argv(int size, char **argv, int *array)
-{
-	int		i;
-	char	*tmp;
-	char	*arg;
-
-	i = -1;
-	if (size == 0)
-		return (true);
-	while (++i < size)
-	{
-		array[i] = ft_atoi(argv[i + 1]);
-		tmp = ft_itoa(array[i]);
-		if (argv[i + 1][0] == '+')
-			arg = argv[i + 1] + 1;
-		else
-			arg = argv[i + 1];
-		if (ft_strncmp(tmp, arg, ft_strlen(tmp)))
-		{
-			free(tmp);
-			return (true);
-		}
-		free(tmp);
-	}
-	return (false);
-}
-
 int	*bubble_sort(int *array, int size)
 {
 	int	*sorted_array;
@@ -59,6 +32,8 @@ int	*bubble_sort(int *array, int size)
 	int	j;
 
 	sorted_array = (int *)malloc(sizeof(int) * size);
+	if (!sorted_array)
+		return (NULL);
 	if (sorted_array)
 	{
 		i = -1;
@@ -103,15 +78,24 @@ void	cord_compress(int *array, int size)
 	free(sorted);
 }
 
-void	init_stack(t_list **stack_a, t_list **stack_b, int *array, int size)
+void	init_stack(t_list ***stack_a, t_list ***stack_b, int *array, int size)
 {
 	int	i;
 
-	*stack_a = NULL;
-	*stack_b = NULL;
+	*stack_a = (t_list **)malloc(sizeof(t_list *));
+	if (!*stack_a)
+		return ;
+	*stack_b = (t_list **)malloc(sizeof(t_list *));
+	if (!*stack_b)
+	{
+		free(*stack_a);
+		return ;
+	}
+	**stack_a = NULL;
+	**stack_b = NULL;
 	i = -1;
 	while (++i < size)
-		ft_lstadd_back(stack_a, ft_lstnew(array + i));
-	ft_lstadd_back(stack_a, ft_lstnew(NULL));
-	ft_lstadd_back(stack_b, ft_lstnew(NULL));
+		ft_lstadd_back(*stack_a, ft_lstnew(array + i));
+	ft_lstadd_back(*stack_a, ft_lstnew(NULL));
+	ft_lstadd_back(*stack_b, ft_lstnew(NULL));
 }

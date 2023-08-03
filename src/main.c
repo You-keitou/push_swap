@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:56:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 05:21:03 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 06:54:10 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,44 @@ static void	error(void)
 	exit(1);
 }
 
-int	main(int argc, char **argv)
+static int	*is_valid_argv(int argc, char **argv, int *new_size)
 {
-	int		*array;
-	t_list	**stack_a;
-	t_list	**stack_b;
+	int	*array;
 
-	array = (int *)malloc(sizeof(int) * (argc - 1));
-	stack_a = (t_list **)malloc(sizeof(t_list *));
-	stack_b = (t_list **)malloc(sizeof(t_list *));
-	if (check_argv(argc - 1, argv, array))
+	array = check_argv(argc - 1, argv + 1, new_size);
+	if (!array)
+		return (NULL);
+	if (is_duplicated(array, *new_size))
 	{
 		free(array);
-		error();
+		return (NULL);
 	}
-	else
+	return (array);
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	**stack_a;
+	t_list	**stack_b;
+	int		*array;
+	int		new_size;
+
+	array = is_valid_argv(argc, argv, &new_size);
+	if (array)
 	{
-		if (is_sorted(array, argc - 1))
+		if (is_sorted(array, new_size))
+		{
+			free(array);
 			return (0);
-		cord_compress(array, argc - 1);
-		init_stack(stack_a, stack_b, array, argc - 1);
-		sort(stack_a, stack_b, argc - 1);
+		}
+		cord_compress(array, new_size);
+		init_stack(&stack_a, &stack_b, array, new_size);
+		if (ft_lstsize(*stack_a) == new_size)
+			sort(stack_a, stack_b, new_size);
 		free(array);
 		free_stack(stack_a, stack_b);
 	}
+	else
+		error();
 	return (0);
 }
