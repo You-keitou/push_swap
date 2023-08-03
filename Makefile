@@ -17,12 +17,10 @@ $(NAME): $(OBJS)
 
 clean:
 	@${MAKE} -C printf clean
-	-$(RM) $(TEST_OBJ)
 	-$(RM) $(OBJS)
 
 fclean: clean
 	@${MAKE} -C printf fclean
-	-$(RM) $(TEST_NAME)
 	-$(RM) $(NAME)
 
 re: fclean all
