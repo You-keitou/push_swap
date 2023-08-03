@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 03:16:56 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/02 16:24:03 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 01:22:31 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,28 @@ static void	find_insert_position(t_list *node, t_stack *stack_a,
 
 static void	push_back(t_stack *stack_a, t_stack *stack_b)
 {
-	int	rr_cost;
-	int	r_cost;
+	int	zero_index;
+	int	b_head_num;
+	int	head_num;
 
-	while (stack_b->size)
+	sort_three(stack_a->head);
+	while (1)
+	{
+		b_head_num = *((*stack_b->head)->content);
+		stack_a->target = find_smallest_node(*stack_a->head, b_head_num);
+		move_to_top(stack_a->target, stack_a);
 		pa(stack_a, stack_b);
-	rr_cost = stack_a->size - find_nth_node(0, *stack_a->head);
-	r_cost = find_nth_node(0, *stack_a->head);
-	if (rr_cost < r_cost)
-		while (rr_cost--)
+		if (stack_b->size == 0)
+			break ;
+		head_num = *((*stack_a->head)->content);
+		while (find_nth_node(head_num - 1, *stack_a->head) == stack_a->size - 1)
+		{
 			rra(stack_a->head);
-	else
-		while (r_cost--)
-			ra(stack_a->head);
+			head_num = *((*stack_a->head)->content);
+		}
+	}
+	zero_index = find_nth_node(0, *stack_a->head);
+	move_to_top(zero_index, stack_a);
 }
 
 void	sort_complex(t_stack *stack_a, t_stack *stack_b)
@@ -67,7 +76,7 @@ void	sort_complex(t_stack *stack_a, t_stack *stack_b)
 	int		search_index;
 	int		min_score;
 
-	while (stack_a->size > 0)
+	while (stack_a->size > 3)
 	{
 		search_index = 0;
 		tmp = *stack_a->head;

@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:54:46 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 07:19:19 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 00:28:20 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ void		sort_three(t_list **stack_a);
 void		sort_complex(t_stack *stack_a, t_stack *stack_b);
 
 // algorithm
+void		move_to_top(int num, t_stack *stack);
 int			find_nth_node(int num, t_list *stack);
 bool		is_min_of_stack(int num, t_list *stack);
 int			find_biggest_node(t_list *stack, int num);
+int			find_smallest_node(t_list *stack, int num);
 void		insert(t_stack *stack_a, t_stack *stack_b);
 
 // insert_utils

@@ -6,7 +6,7 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 22:30:27 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/01 07:23:34 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/04 00:43:59 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,16 @@ void	sort_three(t_list **stack_a)
 
 static void	sort_under_six(t_stack *stack_a, t_stack *stack_b)
 {
-	t_list	*head_node;
 	int		will_push_num;
+	int		target_index;
 
 	will_push_num = 0;
 	while (stack_a->size > 3)
 	{
-		head_node = *(stack_a->head);
-		if (will_push_num == *(head_node->content))
-		{
-			pb(stack_a, stack_b);
-			will_push_num++;
-		}
-		else
-			ra(stack_a->head);
+		target_index = find_nth_node(will_push_num, *(stack_a->head));
+		move_to_top(target_index, stack_a);
+		pb(stack_a, stack_b);
+		will_push_num++;
 	}
 	sort_three(stack_a->head);
 	while (stack_b->size > 0)
