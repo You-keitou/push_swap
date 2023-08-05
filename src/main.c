@@ -6,11 +6,12 @@
 /*   By: jinyang <jinyang@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:56:29 by jinyang           #+#    #+#             */
-/*   Updated: 2023/08/04 06:54:10 by jinyang          ###   ########.fr       */
+/*   Updated: 2023/08/05 13:56:56 by jinyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "stdio.h"
 
 static void	free_stack(t_list **stack_a, t_list **stack_b)
 {
@@ -67,3 +68,18 @@ int	main(int argc, char **argv)
 		error();
 	return (0);
 }
+
+// __attribute__((destructor)) void destructor(void)
+// {
+// 	int		status;
+// 	char	buf[50];
+
+// 	snprintf(buf, 50, "leaks %d &> leaksout", getpid());
+// 	status = system(buf);
+// 	if (status)
+// 	{
+// 		write(2, "leak!!!\n", 8);
+// 		system("cat leaksout >/dev/stderr");
+// 		exit(1);
+// 	}
+// }
